@@ -1,0 +1,57 @@
+<!DOCTYPE>
+<html ng-app>
+<head>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
+	<title>This is a test project of MongoDB</title>
+</head>
+<body style="background:lightblue">
+	<div style="height:200px weight:80px"class="container" ng-controller="AppCtrl">
+		<h1 style="color:red">Add Value to the Table</h1>
+	 	<table class="table">
+			<thead>
+				<tr>
+					<th>Lat</th>
+					<th>Long</th>
+					<th>PlaceName</th>
+					<th>Action</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td><input class="form-control" ng-model="node.lat"></td>
+					<td><input class="form-control" ng-model="node.long"></td>
+					<td><input class="form-control" ng-model="node.placename"></td>
+					<td><button class="btn btn-primary" ng-click="addValue()">SaveToDb</button></td>
+				</tr>
+				<tr ng-repeat='node in mongodb'>
+					<td>{{node.lat}}</td>
+					<td>{{node.long}}</td>
+					<td>{{node.placename}}</td>
+					<td><button class ="btn  btn-primary" ng-click="remove(node._id)">Delete</button></td>
+				</tr>
+			</tbody>
+
+			<thead>
+				<tr>
+					<th>Lat</th>
+					<th>Long</th>
+			</thead>
+			<tbody>
+				<tr>
+					<td><input class="form-control" ng-model="node.lats"></td>
+					<td><input class="form-control" ng-model="node.longs"></td>
+					<td><button class="btn btn-primary" ng-click="searchValue()">SearchPlace</button></td>
+				</tr>
+				<tr ng-repeat='node in mongodb'>
+	
+					
+				</tr>
+			</tbody>
+		</table>
+	</div>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.28/angular.min.js"></script>
+<script src="controllers/controller.js"></script>
+</body>
+</html> 
